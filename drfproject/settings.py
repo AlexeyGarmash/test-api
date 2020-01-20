@@ -26,7 +26,10 @@ SECRET_KEY = 'blf@l!xixhcnscl(i!2sfq1kx7tpj+iv1xj$a6itd%nuhy=2ep'
 DEBUG = True
 
 ALLOWED_HOSTS = ['alexeygarmash.pythonanywhere.com']
+<<<<<<< HEAD
 
+=======
+>>>>>>> b8166a0f4a934fd5a181c4a404ecee4843bc1fb0
 
 # Application definition
 
@@ -50,14 +53,19 @@ INSTALLED_APPS = [
     'users',
     'products',
 ]
+
+
+
 AUTH_USER_MODEL = 'users.CustomUser'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
-    ]
+    ],
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
 }
+
 
 SITE_ID = 1
 
