@@ -14,3 +14,15 @@ class ProductDetailView(generics.RetrieveAPIView):
 class CommentDeatailView(generics.RetrieveAPIView):
     queryset = models.Comment.objects.all()
     serializer_class = serializers.CommentSerializer
+
+class CommentsProductListView(generics.ListAPIView):
+
+    serializer_class = serializers.CommentSerializer
+
+    def get_queryset(self):
+        """
+        This view should return a list of all the purchases for
+        the user as determined by the username portion of the URL.
+        """
+        pk = self.kwargs['pk']
+        return models.Comment.objects.filter(product__pk=pk)

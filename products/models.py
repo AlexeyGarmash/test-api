@@ -9,7 +9,7 @@ from django.conf import settings
 class Product(models.Model):
     name = models.CharField(max_length=100)
     price = models.IntegerField(default=0)
-    photo = models.ImageField(null=True, upload_to=settings.MEDIA_URL)
+    photo = models.ImageField(null=True, upload_to='images/')
     def __str__(self):
         return self.name
     
